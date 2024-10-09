@@ -1,0 +1,64 @@
+.thumb {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../../photos/bg/bg.webp);
+  position: absolute;
+  top: -24;
+  left: 0;
+  width: 1440px;
+  height: 696px;
+  z-index: -1;
+}
+
+@media only screen and (min-resolution: 192dpi) {
+  .thumb {
+    background-image: url(../../photos/bg/bg_2x.webp);
+  }
+}
+
+.container {
+  padding-top: 260px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.title {
+  color: #f2f4f7;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 0.667;
+}
+
+.text {
+  color: #f2f4f7;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.333;
+}
+
+.link {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 173px;
+  padding: 16px 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background-color: #e44848;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  transition: color 0.3s;
+}
+.link:hover,
+.link:focus {
+  background-color: var(--accent-active);
+}

@@ -1,9 +1,5 @@
 const CatalogPage = () => {
-  return (
-    <div>
-      <h1>Catalog Page</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default CatalogPage;
