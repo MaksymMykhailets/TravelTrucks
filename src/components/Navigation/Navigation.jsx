@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Icon from "../../icons/Icon";
+import Icon from "../../../public/icons/Icon.jsx";
 import css from "./Navigation.module.css";
 
 const Navigation = () => {

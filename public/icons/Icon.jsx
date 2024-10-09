@@ -1,6 +1,6 @@
 const Icon = ({ name, width = 32, height = 32, fill = "currentColor" }) => (
   <svg width={width} height={height} fill={fill}>
-    <use xlinkHref={`/TravelTrucks/icons/icons.svg#${name}`} />
+    <use xlinkHref={`./icons/icons.svg#${name}`} />
   </svg>
 );
 
