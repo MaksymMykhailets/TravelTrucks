@@ -1,0 +1,5 @@
+.catalogPage {
+  padding-top: 48px;
+  display: flex;
+  gap: 64px;
+}

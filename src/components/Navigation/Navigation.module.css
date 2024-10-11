@@ -4,9 +4,14 @@
   align-items: center;
   padding: 24px 0;
   position: relative;
+  background-color: #f7f7f7;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logoContainer {
+  margin-left: 64px;
   position: absolute;
   left: 0;
 }
