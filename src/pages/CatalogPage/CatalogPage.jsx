@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import { setFilters } from "../../redux/campers/slice";
@@ -17,12 +17,18 @@ const CatalogPage = () => {
   const filters = useSelector(selectFilters);
   const status = useSelector(selectCampersStatus);
 
+  const [visibleCount, setVisibleCount] = useState(4);
+
   useEffect(() => {
     dispatch(fetchCampers(filters));
   }, [dispatch, filters]);
 
   const handleFilterChange = (newFilters) => {
     dispatch(setFilters(newFilters));
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
   };
 
   return (
@@ -39,13 +45,17 @@ const CatalogPage = () => {
         {status === "loading" && <p>Loading...</p>}
         {status === "failed" && <p>Error loading campers.</p>}
         {status === "succeeded" && campers && campers.length > 0 ? (
-          campers.map((camper) => (
-            <VehicleCard key={camper.id} camper={camper} />
-          ))
+          campers
+            .slice(0, visibleCount)
+            .map((camper) => <VehicleCard key={camper.id} camper={camper} />)
         ) : (
           <p>No campers found.</p>
         )}
-        <button className={css.loadMoreButton}>Load More</button>
+        {visibleCount < campers.length && (
+          <button className={css.loadMoreBtn} onClick={handleLoadMore}>
+            Load More
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,136 @@
+.vehicleCard {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  gap: 24px;
+}
+.imgWrapper {
+  flex: 0 0 292px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.vehicleImage {
+  width: 292px;
+  height: 320px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+}
+
+.vehicleName,
+.vehiclePrice {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+}
+.vehicleName {
+  margin-right: auto;
+}
+
+.vehiclePrice {
+  margin-right: 12px;
+}
+
+.likeIcon {
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  transition: color 0.3s ease;
+}
+
+.likeIcon.active {
+  color: var(--accent);
+}
+
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ratingLocation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ratingLocation span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ratingWrapper,
+.locationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.description {
+  display: -webkit-box;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  overflow: hidden;
+  color: #475467;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.featuresList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  gap: 8px;
+  border-radius: 100px;
+  background-color: #f2f4f7;
+}
+
+.showMoreBtn {
+  display: flex;
+  width: 166px;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background-color: var(--accent);
+
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.showMoreButton:hover {
+  background-color: #d84343;
+}

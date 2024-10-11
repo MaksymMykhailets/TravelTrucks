@@ -3,3 +3,28 @@
   display: flex;
   gap: 64px;
 }
+
+.catalogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 52px;
+}
+
+.loadMoreBtn {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  width: 147px;
+  gap: 10px;
+  border-radius: 200px;
+  background-color: transparent;
+  border: 1px solid #dadde1;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  margin-top: 8px;
+}

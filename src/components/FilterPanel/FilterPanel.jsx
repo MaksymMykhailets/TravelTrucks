@@ -1,24 +1,13 @@
 import css from "./FilterPanel.module.css";
 import Icon from "../../../public/icons/Icon";
 import { useState } from "react";
-
-const categories = [
-  { name: "AC", label: "AC", icon: "icon-ac" },
-  { name: "transmission", label: "Automatic", icon: "icon-diagram" },
-  { name: "kitchen", label: "Kitchen", icon: "icon-cup-hot" },
-  { name: "TV", label: "TV", icon: "icon-tv" },
-  { name: "bathroom", label: "Bathroom", icon: "icon-drop" },
-];
-
-const vehicleTypes = [
-  { name: "panelTruck", label: "Van", icon: "icon-grid1" },
-  { name: "fullyIntegrated", label: "Fully Integrated", icon: "icon-grid2" },
-  { name: "alcove", label: "Alcove", icon: "icon-grid3" },
-];
+import { categories, vehicleTypes } from "../../data/vehicleData";
 
 const FilterPanel = ({ filters, setFilters, onFilterChange }) => {
   const [isInputActive, setIsInputActive] = useState(false);
   const [localFilters, setLocalFilters] = useState(filters);
+
+  const defaultFilters = ["AC", "transmission", "kitchen", "TV", "bathroom"];
 
   const handleCategoryClick = (categoryName) => {
     let newFilters = { ...localFilters };
@@ -77,18 +66,20 @@ const FilterPanel = ({ filters, setFilters, onFilterChange }) => {
         <hr className={css.hr} />
 
         <div className={css.categoryContainer}>
-          {categories.map((category) => (
-            <div
-              key={category.name}
-              className={`${css.category} ${
-                localFilters[category.name] ? css.active : ""
-              }`}
-              onClick={() => handleCategoryClick(category.name)}
-            >
-              <Icon name={category.icon} />
-              <span>{category.label}</span>
-            </div>
-          ))}
+          {categories
+            .filter((category) => defaultFilters.includes(category.name))
+            .map((category) => (
+              <div
+                key={category.name}
+                className={`${css.category} ${
+                  localFilters[category.name] ? css.active : ""
+                }`}
+                onClick={() => handleCategoryClick(category.name)}
+              >
+                <Icon name={category.icon} />
+                <span>{category.label}</span>
+              </div>
+            ))}
         </div>
       </div>
 
