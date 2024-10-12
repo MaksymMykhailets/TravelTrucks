@@ -6,6 +6,7 @@
   width: 100%;
   gap: 24px;
 }
+
 .imgWrapper {
   flex: 0 0 292px;
   display: flex;
@@ -77,6 +78,10 @@
   line-height: 1.5;
 }
 
+.ratingWrapper {
+  text-decoration: underline;
+}
+
 .ratingWrapper,
 .locationWrapper {
   display: flex;
@@ -131,6 +136,6 @@
   letter-spacing: -0.005em;
 }
 
-.showMoreButton:hover {
-  background-color: #d84343;
+.showMoreBtn:hover {
+  background-color: var(--accent-active);
 }

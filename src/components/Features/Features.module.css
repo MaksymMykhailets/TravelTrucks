@@ -1,0 +1,58 @@
+.featuresWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 631px;
+  padding: 44px 70px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+}
+
+.equipment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  background-color: #f2f4f7;
+  border-radius: 50px;
+  gap: 8px;
+}
+
+.vehicleDetails {
+  width: 100%;
+}
+
+.vehicleDetails h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hr {
+  height: 1px;
+  background-color: #dadde1;
+  margin: 24px 0;
+  border: none;
+}
+
+.vehicleDetails ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vehicleDetails ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vehicleDetails ul li span {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}

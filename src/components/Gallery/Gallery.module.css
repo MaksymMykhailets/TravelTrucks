@@ -1,0 +1,14 @@
+.galleryContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 45px;
+}
+
+.galleryImage {
+  width: 292px;
+  height: 312px;
+  border-radius: 10px;
+  object-fit: cover;
+}

@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers } from "./operations";
+import { fetchCampers, fetchCamperDetails } from "./operations";
 
 const initialState = {
   campers: [],
+  camperDetails: null,
   filters: {},
   favorites: JSON.parse(localStorage.getItem("favorites")) || [],
   status: "idle",
+  camperDetailsStatus: "idle",
 };
 
 const campersSlice = createSlice({
@@ -39,6 +41,17 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.rejected, (state) => {
         state.status = "failed";
+      })
+      .addCase(fetchCamperDetails.pending, (state) => {
+        state.camperDetailsStatus = "loading";
+      })
+      .addCase(fetchCamperDetails.fulfilled, (state, action) => {
+        state.camperDetailsStatus = "succeeded";
+        state.camperDetails = action.payload;
+      })
+      .addCase(fetchCamperDetails.rejected, (state) => {
+        state.camperDetailsStatus = "failed";
+        state.camperDetails = null;
       });
   },
 });

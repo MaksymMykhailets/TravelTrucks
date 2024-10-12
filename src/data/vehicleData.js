@@ -5,6 +5,7 @@ export const categories = [
   { name: "TV", label: "TV", icon: "icon-tv" },
   { name: "bathroom", label: "Bathroom", icon: "icon-drop" },
   { name: "gas", label: "Petrol", icon: "icon-petrol" },
+  { name: "radio", label: "Radio", icon: "icon-radio" },
 ];
 
 export const vehicleTypes = [
