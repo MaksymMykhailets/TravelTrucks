@@ -1,1 +1,81 @@
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
 
+.bookingForm h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.bookingForm p {
+  color: #6c717b;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.input {
+  padding: 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.textarea {
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f9fafb;
+  height: 120px;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+
+.submitButton {
+  display: flex;
+  width: 166px;
+  padding: 16px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 200px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  margin-top: 24px;
+  align-self: center;
+}
+
+.submitButton:hover {
+  background-color: var(--accent-active);
+}
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}

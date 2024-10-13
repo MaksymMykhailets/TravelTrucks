@@ -8,6 +8,7 @@ const initialState = {
   favorites: JSON.parse(localStorage.getItem("favorites")) || [],
   status: "idle",
   camperDetailsStatus: "idle",
+  noResults: false,
 };
 
 const campersSlice = createSlice({
@@ -34,10 +35,16 @@ const campersSlice = createSlice({
     builder
       .addCase(fetchCampers.pending, (state) => {
         state.status = "loading";
+        state.campers = [];
+        state.noResults = false;
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.campers = action.payload;
+
+        if (action.payload.length === 0) {
+          state.noResults = true;
+        }
       })
       .addCase(fetchCampers.rejected, (state) => {
         state.status = "failed";

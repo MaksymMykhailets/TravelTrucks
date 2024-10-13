@@ -13,6 +13,7 @@ import Features from "../../components/Features/Features";
 import LocationFormatter from "../../components/LocationFormatter/LocationFormatter";
 import Icon from "../../../public/icons/Icon";
 import css from "./DetailsPage.module.css";
+import Loader from "../../components/Loader/Loader";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -25,8 +26,9 @@ const DetailsPage = () => {
     dispatch(fetchCamperDetails(id));
   }, [dispatch, id]);
 
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Error loading camper details.</p>;
+  if (status === "loading") {
+    return <Loader />;
+  }
 
   if (!camper) return null;
 

@@ -79,7 +79,7 @@
   display: flex;
   justify-content: flex-start;
   background-color: #fff;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid #dadde1;
   margin-bottom: 44px;
   gap: 40px;
 }
@@ -91,7 +91,6 @@
   font-weight: 500;
   cursor: pointer;
   padding: 8px;
-  color: #6c717b;
   position: relative;
 }
 
@@ -123,12 +122,6 @@
   border-radius: 10px;
   border: 1px solid #dadde1;
   padding: 44px;
-}
-
-.hr {
-  height: 1px;
-  background-color: #dadde1;
-  border: none;
 }
 
 .tabsnfeaturesWrapper {

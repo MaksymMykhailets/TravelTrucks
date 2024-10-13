@@ -73,8 +73,6 @@
 }
 
 .ratingLocation span {
-  font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -98,8 +96,6 @@
   overflow: hidden;
   color: #475467;
   text-overflow: ellipsis;
-  font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -130,7 +126,6 @@
   background-color: var(--accent);
 
   color: #fff;
-  font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.005em;
