@@ -39,6 +39,7 @@ const CatalogPage = () => {
   }, [status, toastShown, isSearchClicked]);
 
   useEffect(() => {
+    setVisibleCount(4);
     dispatch(fetchCampers(filters));
   }, [dispatch, filters]);
 
