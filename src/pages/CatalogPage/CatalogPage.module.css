@@ -10,6 +10,9 @@
   align-items: center;
   gap: 32px;
   margin-bottom: 52px;
+  position: relative;
+  min-height: 500px;
+  width: 100%;
 }
 
 .loadMoreBtn {

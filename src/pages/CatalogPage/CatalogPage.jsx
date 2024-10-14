@@ -6,20 +6,18 @@ import {
   selectCampers,
   selectFilters,
   selectCampersStatus,
-  selectNoResults,
 } from "../../redux/campers/selectors";
 import VehicleCard from "../../components/VehicleCard/VehicleCard";
 import FilterPanel from "../../components/FilterPanel/FilterPanel";
-import Loader from "../../components/Loader/Loader";
 import css from "./CatalogPage.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import CatalogLoader from "../../components/CatalogLoader/CatalogLoader";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers);
   const filters = useSelector(selectFilters);
   const status = useSelector(selectCampersStatus);
-  const noResults = useSelector(selectNoResults);
 
   const [visibleCount, setVisibleCount] = useState(4);
   const [toastShown, setToastShown] = useState(false);
@@ -65,7 +63,7 @@ const CatalogPage = () => {
       </div>
 
       <div className={css.catalogContainer}>
-        {status === "loading" && noResults && <Loader />}
+        {status === "loading" && <CatalogLoader />}
 
         {status === "succeeded" &&
           campers
