@@ -1,6 +1,6 @@
 import css from "./FilterPanel.module.css";
 import Icon from "../../../public/icons/Icon";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { categories, vehicleTypes } from "../../data/vehicleData";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -21,32 +21,34 @@ const FilterPanel = ({
   onSearchClick,
 }) => {
   const [localFilters, setLocalFilters] = useState(filters);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const defaultFilters = ["AC", "transmission", "kitchen", "TV", "bathroom"];
 
-  const handleCategoryClick = (categoryName) => {
-    let newFilters = { ...localFilters };
-    if (categoryName === "transmission") {
-      newFilters[categoryName] =
-        localFilters[categoryName] === "automatic" ? null : "automatic";
-    } else {
-      newFilters[categoryName] = !localFilters[categoryName];
-    }
-    setLocalFilters(newFilters);
-  };
+  const handleCategoryClick = useCallback(
+    (categoryName) => {
+      let newFilters = { ...localFilters };
+      if (categoryName === "transmission") {
+        newFilters[categoryName] =
+          localFilters[categoryName] === "automatic" ? null : "automatic";
+      } else {
+        newFilters[categoryName] = !localFilters[categoryName];
+      }
+      setLocalFilters(newFilters);
+    },
+    [localFilters]
+  );
 
-  const handleVehicleTypeClick = (vehicleTypeName) => {
-    let newFilters = { ...localFilters };
+  const handleVehicleTypeClick = useCallback(
+    (vehicleTypeName) => {
+      let newFilters = { ...localFilters };
+      newFilters.form =
+        newFilters.form === vehicleTypeName ? null : vehicleTypeName;
+      setLocalFilters(newFilters);
+    },
+    [localFilters]
+  );
 
-    newFilters.form =
-      newFilters.form === vehicleTypeName ? null : vehicleTypeName;
-
-    setLocalFilters(newFilters);
-  };
-
-  const handleSearchClick = async (values) => {
-    setIsSubmitting(true);
+  const handleSearchClick = async (values, { setSubmitting }) => {
     const updatedFilters = { ...localFilters, location: values.location };
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -54,7 +56,7 @@ const FilterPanel = ({
     setFilters(updatedFilters);
     onFilterChange(updatedFilters);
     onSearchClick();
-    setIsSubmitting(false);
+    setSubmitting(false);
   };
 
   return (
@@ -63,9 +65,9 @@ const FilterPanel = ({
         location: localFilters.location || "",
       }}
       validationSchema={validationSchema}
-      onSubmit={(values) => handleSearchClick(values)}
+      onSubmit={handleSearchClick}
     >
-      {({ isValid }) => (
+      {({ isValid, isSubmitting }) => (
         <Form className={css.wrapper}>
           <div className={css.inputContainer}>
             <label className={css.inputLabel}>Location</label>
@@ -133,7 +135,7 @@ const FilterPanel = ({
             className={css.searchBtn}
             disabled={!isValid || isSubmitting}
           >
-            {isSubmitting ? "Searching..." : "Search"}{" "}
+            {isSubmitting ? "Searching..." : "Search"}
           </button>
         </Form>
       )}
