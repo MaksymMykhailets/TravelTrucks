@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "../../../public/icons/Icon.jsx";
 import css from "./Navigation.module.css";
 
@@ -9,12 +9,22 @@ const Navigation = () => {
         <Icon name="icon-logo" width={136} height={16} className={css.logo} />
       </div>
       <div className={css.wrapper}>
-        <Link className={css.link} to="/">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.activeLink}` : css.link
+          }
+        >
           Home
-        </Link>
-        <Link className={css.link} to="/catalog">
+        </NavLink>
+        <NavLink
+          to="/catalog"
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.activeLink}` : css.link
+          }
+        >
           Catalog
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

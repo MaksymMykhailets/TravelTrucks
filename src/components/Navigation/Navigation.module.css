@@ -31,3 +31,7 @@
 .link:focus {
   color: var(--accent);
 }
+
+.activeLink {
+  color: var(--accent);
+}
