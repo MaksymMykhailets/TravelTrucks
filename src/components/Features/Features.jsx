@@ -10,9 +10,11 @@ const Features = ({ camper }) => {
   const defaultFeaturesOrder = [
     "transmission",
     "AC",
-    "gas",
+    "engine",
     "kitchen",
     "radio",
+    "refrigerator",
+    "water",
   ];
 
   const features = defaultFeaturesOrder

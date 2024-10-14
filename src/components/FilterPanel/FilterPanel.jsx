@@ -49,8 +49,13 @@ const FilterPanel = ({
   );
 
   const handleSearchClick = async (values, { setSubmitting }) => {
-    const updatedFilters = { ...localFilters, location: values.location };
-
+    const trimmedLocation = values.location.trim();
+    
+    const updatedFilters = { 
+      ...localFilters, 
+      location: trimmedLocation 
+    };
+    
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setFilters(updatedFilters);

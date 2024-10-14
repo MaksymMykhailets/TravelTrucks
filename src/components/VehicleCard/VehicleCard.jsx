@@ -12,7 +12,7 @@ const VehicleCard = ({ camper }) => {
   const favorites = useSelector(selectFavorites);
   const isFavorite = favorites.includes(camper.id);
 
-  const defaultFeaturesOrder = ["transmission", "gas", "kitchen", "AC"];
+  const defaultFeaturesOrder = ["transmission", "engine", "kitchen", "AC"];
 
   const features = defaultFeaturesOrder
     .map((featureName) =>
@@ -42,7 +42,7 @@ const VehicleCard = ({ camper }) => {
         <div className={css.cardTitle}>
           <h2 className={css.vehicleName}>{camper.name}</h2>
           <p className={css.vehiclePrice}>
-            €{Number(camper.price).toLocaleString()}
+            €{Number(camper.price).toFixed(2)}
           </p>
           <div
             className={`${css.likeIcon} ${isFavorite ? css.active : ""}`}

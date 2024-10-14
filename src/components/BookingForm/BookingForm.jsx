@@ -9,7 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 const validationSchema = Yup.object({
   name: Yup.string()
     .matches(
-      /^[A-Za-z]+$/,
+      /^[A-Za-z\s]+$/, 
       "Name should not contain numbers or special characters"
     )
     .min(2, "Name should be at least 2 characters")
@@ -99,6 +99,7 @@ const BookingForm = ({ camperId }) => {
                   placeholderText="Booking date*"
                   className={css.input}
                   dateFormat="dd/MM/yyyy"
+                  minDate={new Date()}
                 />
                 <ErrorMessage
                   name="date"
